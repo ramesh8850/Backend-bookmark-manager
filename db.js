@@ -1,11 +1,8 @@
 import pkg from "pg";
 import dotenv from "dotenv";
-import { URL } from "url";
 
 dotenv.config();
 
-// Parse DATABASE_URL from environment variable
-const dbUrl = new URL(process.env.DATABASE_URL);
 
 const { Pool } = pkg;
 
