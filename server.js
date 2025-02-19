@@ -1,12 +1,21 @@
 import express from "express";
 import cors from "cors";
 import pool from "./db.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: "http://localhost:3000", // Allow localhost for local testing
+  methods: "GET, POST, PUT, DELETE", // Allowed methods
+  credentials: true, // If you need cookies or auth headers
+}));
+
+
 app.use(express.json()); // For parsing JSON requests
 
 // **Create a new bookmark**
